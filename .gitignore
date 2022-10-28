@@ -77,3 +77,6 @@ SpaceGame/UserSettings/
 SpaceGame/Obj/
 SpaceGame/Build/
 SpaceGame/Builds/
+*.pdf
+*.pdf.meta
+SpaceGame/Assets/StarSparrow/Readme/USC Documentation.pdf.meta
