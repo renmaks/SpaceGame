@@ -74,3 +74,6 @@ SpaceGame/Library/
 SpaceGame/Logs/
 SpaceGame/Temp/
 SpaceGame/UserSettings/
+SpaceGame/Obj/
+SpaceGame/Build/
+SpaceGame/Builds/
