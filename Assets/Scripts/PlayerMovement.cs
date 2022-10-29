@@ -34,10 +34,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        Vector3 velocity = _rigidbody.velocity;
-        velocity.x = _xAxis * _speed;
-        velocity.z = _zAxis * _speed;
-        _rigidbody.velocity = velocity;
+        _rigidbody.velocity = new Vector3(_xAxis * _speed, 0, _zAxis * _speed);
         
         //поворот/наклон
         _rigidbody.rotation = Quaternion.Euler(_zAxis * _pitchMupltiplierX, _xAxis * _pitchMultiplierY, -_xAxis * _pitchMultiplierZ);
