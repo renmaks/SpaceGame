@@ -5,14 +5,14 @@ using UnityEngine;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-     private const float _speed = 35;
-     private const float _pitchMupltiplier = 20; // Угол наклона
-     private const float _rollMultiplier = 20;
+    private const float _speed = 35;
+    private const float _pitchMupltiplierX = 15; // Угол наклона
+    private const float _pitchMultiplierY = 15;
+    private const float _pitchMultiplierZ = 5;
     
     private Rigidbody _rigidbody;
     private float _xAxis, _zAxis;
-
-
+    
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -35,11 +35,11 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         Vector3 velocity = _rigidbody.velocity;
-        velocity = new Vector3(_xAxis * _speed, velocity.y, velocity.z);
-        velocity = new Vector3(velocity.x, velocity.y, _zAxis * _speed);
+        velocity.x = _xAxis * _speed;
+        velocity.z = _zAxis * _speed;
         _rigidbody.velocity = velocity;
         
         //поворот/наклон
-        _rigidbody.rotation = Quaternion.Euler(_zAxis * _pitchMupltiplier, _xAxis * _rollMultiplier, 0);
+        _rigidbody.rotation = Quaternion.Euler(_zAxis * _pitchMupltiplierX, _xAxis * _pitchMultiplierY, -_xAxis * _pitchMultiplierZ);
     }
 }

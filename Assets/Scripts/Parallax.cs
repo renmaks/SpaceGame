@@ -28,24 +28,16 @@ public class Parallax : MonoBehaviour
 
     private void Update()
     {
-        float yPosition, xPosition = 0;
-        yPosition = Time.time * _scrollSpeed % _facegroundHeight + (_facegroundHeight * 0.5f);
+        float xPosition = 0;
+        float yPosition = Time.time * _scrollSpeed % _facegroundHeight + (_facegroundHeight * 0.5f);
 
         if (_playerShip != null)
         {
             xPosition = -_playerRigidbody.position.x * _motionMultiplier;
         }
-        
+
         _starfieldFacegrounds[0].transform.position = new Vector3(xPosition, _facegroundDepth, yPosition);
-        if (yPosition >= 0)
-        {
-            _starfieldFacegrounds[1].transform.position = new Vector3(xPosition, _facegroundDepth, yPosition - _facegroundHeight);
-        }
-        else
-        {
-            _starfieldFacegrounds[1].transform.position = new Vector3(xPosition, _facegroundDepth, yPosition + _facegroundHeight);
-        }
+        _starfieldFacegrounds[1].transform.position = yPosition >= 0 ? new Vector3(xPosition, _facegroundDepth, yPosition - _facegroundHeight) 
+            : new Vector3(xPosition, _facegroundDepth, yPosition + _facegroundHeight);
     }
-
-
 }
